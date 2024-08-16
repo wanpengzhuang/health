@@ -3,29 +3,29 @@
 	2.打印测试
 	创建任务函数原型及其参数说明
 	BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
-							const char * const pcName,
-							const configSTACK_DEPTH_TYPE usStackDepth,
-							void * const pvParameters,
-							UBaseType_t uxPriority,
-							TaskHandle_t * const pxCreatedTask )
+				const char * const pcName,
+				const configSTACK_DEPTH_TYPE usStackDepth,
+				void * const pvParameters,
+				UBaseType_t uxPriority,
+				TaskHandle_t * const pxCreatedTask )
 
-		pxTaskCode:任务函数的名称
-		pcName：定义一个能看到的任务名称，为字符串，可以与任务函数不同。后续可以通过xTaskGetHandle()函数来获取到这个函数的句柄。长度定义在configMAX_TASK_NAME_LEN，默认是16字节
-		usStackDepth：定义栈空间大小，configSTACK_DEPTH_TYPE默认定义的是uint16_t，也就是说，当usStackDepth=100实际的堆栈空间大小为200字节。usStackDepth最小值为configMINIMAL_STACK_SIZE，默认定义是128。所以每个任务堆栈最小为256字节
-		pvParameters：传递给任务的参数
-		uxPriority：任务优先级，范围 0~ configMAX_PRIORITIES-1。越大越高
-		pxCreatedTask ：任务句柄
+pxTaskCode:任务函数的名称
+pcName：定义一个能看到的任务名称，为字符串，可以与任务函数不同。后续可以通过xTaskGetHandle()函数来获取到这个函数的句柄。长度定义在configMAX_TASK_NAME_LEN，默认是16字节
+usStackDepth：定义栈空间大小，configSTACK_DEPTH_TYPE默认定义的是uint16_t，也就是说，当usStackDepth=100实际的堆栈空间大小为200字节。usStackDepth最小值为configMINIMAL_STACK_SIZE，默认定义是128。所以每个任务堆栈最小为256字节
+pvParameters：传递给任务的参数
+uxPriority：任务优先级，范围 0~ configMAX_PRIORITIES-1。越大越高
+pxCreatedTask ：任务句柄
 
-	返回值
-	0：pdPASS创建成功
-	-1：errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY堆内存不足
+返回值
+0：pdPASS创建成功
+-1：errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY堆内存不足
 
 
-	任务创建相关函数
-	xTaskCreate() 动态创建一个任务
-	xTaskCreateStatic() 静态创建一个任务
-	xTaskCreateRestricted() 创建一个动态MPU（Memory Protection Unit），一般不使用
-	vTaskDelete() 删除任务
+任务创建相关函数
+xTaskCreate() 动态创建一个任务
+xTaskCreateStatic() 静态创建一个任务
+xTaskCreateRestricted() 创建一个动态MPU（Memory Protection Unit），一般不使用
+vTaskDelete() 删除任务
 	
   修改时间：2024-05-16
 	1.增加压电ADC硬件定时器中断采样，打印数据
