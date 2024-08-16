@@ -1,0 +1,2 @@
+这个头文件的作用是对freertos进行剪裁，确定需要使用哪些功能。
+文件位置：源码目录FreeRTOS\Demo\CORTEX_stm32f103_keil\
